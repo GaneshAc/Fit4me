@@ -1,5 +1,7 @@
 library(shiny)
 library(bslib)
+library(gridExtra)
+library(grid)
 
 # List of exercises by body part
 exercises <- list(
@@ -71,7 +73,9 @@ ui <- page_fluid(
         column(8,
                card(
                    card_header("Your Workout Plan"),
-                   tableOutput("workout_plan")
+                   tableOutput("workout_plan"),
+                   uiOutput("workout_note"),
+                   downloadButton("download_pdf", "Download Workout Plan (PDF)", class = "btn-success mt-3")
                )
         )
     )
@@ -166,6 +170,45 @@ server <- function(input, output, session) {
         req(workout_plan())
         workout_plan()
     }, striped = FALSE, hover = TRUE, bordered = TRUE, class = "table-primary")
+    
+    output$workout_note <- renderUI({
+        req(workout_plan())
+        
+        workout_type <- input$workout_type
+        note <- switch(workout_type,
+                       "Single Body" = paste("This workout focuses on", input$single_body_part, "exercises to target and strengthen this specific muscle group."),
+                       "Double Body" = paste("This workout combines exercises for", input$double_body_part1, "and", input$double_body_part2, "to provide a balanced training session for multiple muscle groups."),
+                       "Mix Body" = "This workout includes exercises for various body parts, providing a full-body training experience.",
+                       "Core" = "This workout concentrates on core exercises to strengthen your abdominal and lower back muscles, improving stability and posture."
+        )
+        
+        tagList(
+            hr(),
+            h4("Workout Note:"),
+            p(note),
+            p("Remember to warm up before starting and cool down after completing your workout. Stay hydrated and listen to your body throughout the session. If you experience pain or discomfort, stop the exercise immediately and consult a fitness professional or healthcare provider."),
+            p(
+                "Developed by ",
+                tags$a(href = "https://github.com/GaneshAc", target = "_blank", "@GaneshAc")
+            ),
+
+        )
+    })
+    
+    output$download_pdf <- downloadHandler(
+        filename = function() {
+            paste("workout_plan_", format(Sys.time(), "%Y%m%d_%H%M%S"), ".pdf", sep = "")
+        },
+        content = function(file) {
+            wp <- workout_plan()
+            
+            # Create a PDF table using gridExtra
+            pdf(file, width = 11, height = 8.5)  # Letter size
+            grid.newpage()
+            grid.table(wp, rows = NULL)
+            dev.off()
+        }
+    )
 }
 
 shinyApp(ui, server)

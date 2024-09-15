@@ -2,6 +2,7 @@ library(shiny)
 library(bslib)
 library(gridExtra)
 library(grid)
+library(rsconnect)
 
 # List of exercises by body part
 exercises <- list(

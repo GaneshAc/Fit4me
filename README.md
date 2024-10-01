@@ -1,12 +1,14 @@
----
+------------------------------------------------------------------------
 
----
+------------------------------------------------------------------------
 
 # **Fit4Me - Random Workout Generator**
 
 ## Overview
 
 Fit4Me is a Shiny app designed to generate personalized workout plans based on user preferences. The app offers various workout options targeting specific body parts, combining exercises for a balanced training routine. With the ability to generate workouts for single or double body parts, full-body mixes, and core-focused routines, Fit4Me aims to provide diverse and customization workout experiences. The app is inspired mix-things-up-shiny by @parmsam who promotes simplicity. this app is designed to cater to all fitness levels, providing a seamless and enjoyable workout experience.
+
+Shiny App: [Fit4Me - Random Workout Generator (shinyapps.io)](https://databrewer.shinyapps.io/Fit4me/)
 
 ### **Features**
 

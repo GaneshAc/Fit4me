@@ -4,14 +4,18 @@ library(gridExtra)
 library(grid)
 library(rsconnect)
 
+
 # List of exercises by body part
 exercises <- list(
     Chest = c("Bench Press", "Push-Ups", "Dumbbell Flyes", "Incline Bench Press"),
     Back = c("Pull-Ups", "Bent-Over Rows", "Lat Pulldowns", "Deadlifts"),
     Legs = c("Squats", "Lunges", "Leg Press", "Calf Raises"),
     Shoulders = c("Overhead Press", "Lateral Raises", "Front Raises", "Shrugs"),
-    Arms = c("Bicep Curls", "Tricep Extensions", "Hammer Curls", "Dips"),
-    Core = c("Plank", "Crunches", "Russian Twists", "Leg Raises")
+    Arms = c("Bicep Curls", "Tricep Extensions", "Hammer Curls", "Dips", "Concentration Curls", "Cable Curls", "Tricep Dips", "Tricep Pushdowns"),
+    Biceps = c("Barbell Curl", "Dumbbell Curl", "Hammer Curl", "Concentration Curl"),
+    Triceps = c("Overhead Tricep Extension", "Tricep Kickbacks", "Close-Grip Dumbbell Press", "Lying triceps extension"),
+    Core = c("Plank", "Crunches", "Russian Twists", "Leg Raises", "Burpees", 
+             "Mountain Climbers", "Jumping Jacks","Push-Ups", "Plank to Push-Up", "Bear Crawl")
 )
 
 # List of finishers by body part
@@ -21,6 +25,8 @@ finishers <- list(
     Legs = c("Bodyweight Squat Burnout", "Jump Lunges"),
     Shoulders = c("Lateral Raise Burnout", "Pike Push-Ups"),
     Arms = c("Tricep Pushdown Burnout", "21s Bicep Curls"),
+    Biceps = c("Bicep Curl Drop Sets", "Hammer Curl Burnout", "Iso-Hold Curls", "21s-Sevens"),
+    Triceps = c("Tricep Dips", "Close-Grip Push-Ups", "Diamond Push-Ups"),
     Core = c("Plank Hold", "Flutter Kicks")
 )
 

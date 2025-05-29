@@ -1,0 +1,13 @@
+name: Fit4me
+title: Fit4me
+username: databrewer
+account: databrewer
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 12716779
+bundleId: 9170023
+url: https://databrewer.shinyapps.io/Fit4me/
+version: 1
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: renv.lock

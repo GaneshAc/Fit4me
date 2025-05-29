@@ -1,0 +1,13 @@
+name: fit4me-rwp
+title: fit4me-rwp
+username: databrewer
+account: databrewer
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 12716820
+bundleId: 9106970
+url: https://databrewer.shinyapps.io/fit4me-rwp/
+version: 1
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: renv.lock

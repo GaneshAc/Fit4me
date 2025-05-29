@@ -79,7 +79,7 @@ ui <- page_fluid(
         ),
         column(8,
                card(
-                   card_header("Your Workout Plan"),
+                   card_header("Your Workout Plans"),
                    tableOutput("workout_plan"),
                    uiOutput("workout_note"),
                    downloadButton("download_pdf", "Download Workout Plan (PDF)", class = "btn-success mt-3")
@@ -102,7 +102,7 @@ server <- function(input, output, session) {
         if (add_finisher) {
             finisher <- data.frame(
                 Exercise = sample(finishers[[body_part]], 1),
-                `Body Part` = body_part,
+                `Body Part` = body_part,0
                 Reps = "To Failure",
                 stringsAsFactors = FALSE
             )

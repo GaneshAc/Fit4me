@@ -102,7 +102,7 @@ server <- function(input, output, session) {
         if (add_finisher) {
             finisher <- data.frame(
                 Exercise = sample(finishers[[body_part]], 1),
-                `Body Part` = body_part,0
+                `Body Part` = body_part,
                 Reps = "To Failure",
                 stringsAsFactors = FALSE
             )
